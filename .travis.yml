@@ -9,20 +9,16 @@ script:
   - docker run -e CI=true travistkirton/react-test npm test
 
 after_success:
-  -docker build -t travistkirton/multi-client ./client
-  -docker build -t travistkirton/multi-nginx ./nginx
-  -docker build -t travistkirton/multi-server ./server
-  -docker build -t travistkirton/multi-worker ./worker
+  - docker build -t travistkirton/multi-client ./client
+  - docker build -t travistkirton/multi-nginx ./nginx
+  - docker build -t travistkirton/multi-server ./server
+  - docker build -t travistkirton/multi-worker ./worker
 
   # Log in to docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  
+
   # Push images to Docker Hub
   - docker push travistkirton/multi-client
   - docker push travistkirton/multi-nginx
   - docker push travistkirton/multi-server
   - docker push travistkirton/multi-worker
-    
-
-
-
