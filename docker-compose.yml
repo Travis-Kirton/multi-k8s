@@ -25,7 +25,7 @@ services:
       - PGHOST=postgres
       - PGDATABASE=postgres
       - PGPASSWORD=potgres_password
-      - PGPOST=5432
+      - PGPORT=5432
     depends_on:
       - postgres
   client:

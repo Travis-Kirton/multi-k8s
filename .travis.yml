@@ -22,3 +22,16 @@ after_success:
   - docker push travistkirton/multi-nginx
   - docker push travistkirton/multi-server
   - docker push travistkirton/multi-worker
+
+deploy:
+  edge: true
+  provider: elasticbeanstalk
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
+  region: 'eu-west-1'
+  app: 'multi-docker'
+  env: 'MultiDocker-env'
+  bucket_name: 'elasticbeanstalk-eu-west-1-434467771281'
+  bucket_path: 'docker_ci_cd'
+  on:
+    branch: master
