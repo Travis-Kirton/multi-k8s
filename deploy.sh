@@ -1,6 +1,6 @@
-docker build -t travistkirton/multi-client:latest -t travistkirton/multi-client:$SHA ./client/Dockerfile ./client
-docker build -t travistkirton/multi-server:latest -t travistkirton/multi-server:$SHA ./server/Dockerfile ./server
-docker build -t travistkirton/multi-worker:latest -t travistkirton/multi-worker:$SHA ./worker/Dockerfile ./worker
+docker build -t travistkirton/multi-client:latest -t travistkirton/multi-client:$SHA -f ./client/Dockerfile ./client
+docker build -t travistkirton/multi-server:latest -t travistkirton/multi-server:$SHA -f ./server/Dockerfile ./server
+docker build -t travistkirton/multi-worker:latest -t travistkirton/multi-worker:$SHA -f ./worker/Dockerfile ./worker
 
 docker push travistkirton/multi-client:latest
 docker push travistkirton/multi-server:latest
